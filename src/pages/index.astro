@@ -9,26 +9,25 @@ import { Tabs, TabsList, TabsTab, TabsPanel } from 'accessible-astro-components'
     Mathis Guellati Tp2-dev-pracht
   </h1>
   <div class="mt-20 flex justify-center">
-    <Tabs>
+  <Tabs>
     <TabsList>
-      <TabsTab id="tab1" controls="panel1" selected>First tab</TabsTab>
-      <TabsTab id="tab2" controls="panel2">Second tab</TabsTab>
-      <TabsTab id="tab3" controls="panel3">Third tab</TabsTab>
+      <TabsTab id="tab1" class="!bg-blue-500" controls="panel1" selected>First tab</TabsTab>
+      <TabsTab id="tab2" class="!bg-blue-500" controls="panel2">Second tab</TabsTab>
+      <TabsTab id="tab3" class="!bg-blue-500" controls="panel3">Third tab</TabsTab>
     </TabsList>
-  
-    <TabsPanel id="panel1" labelledby="adelie" selected>
+    <TabsPanel class="bg-blue-100/25" id="panel1" labelledby="adelie" selected>
       <section id="adelie" class="inline-block align-top w-[700px] mr-5">
         <h2>Adelie</h2>
         <GraphicSpecies species="Adelie" />
       </section>
     </TabsPanel>
-    <TabsPanel id="panel2" labelledby="tab2">
+    <TabsPanel class="bg-blue-100/25" id="panel2" labelledby="tab2">
       <section id="chinstrap" class="inline-block align-top w-[700px] mr-5">
         <h2>Chinstrap</h2>
         <GraphicSpecies species="Chinstrap" />
       </section>
     </TabsPanel>
-    <TabsPanel id="panel3" labelledby="tab3">
+    <TabsPanel class="bg-blue-100/25" id="panel3" labelledby="tab3">
       <section id="gentoo" class="inline-block align-top w-[700px] mr-5">
         <h2>Gentoo</h2>
         <GraphicSpecies species="Gentoo" />
@@ -55,4 +54,5 @@ import { Tabs, TabsList, TabsTab, TabsPanel } from 'accessible-astro-components'
       targetElement.scrollIntoView({ behavior: "smooth", inline: "start" });
     }
   });
+  
 </script>

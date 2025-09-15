@@ -4,7 +4,9 @@ import GraphicSpecies from "../components/GraphicSpecies.astro";
 ---
 
 <Layout>
-  <h1 class="text-center text-2xl font-bold text-blue-500 mt-10">Mathis Guellati Tp2-dev-pracht</h1>
+  <h1 class="text-center text-2xl font-bold text-blue-500 mt-10">
+    Mathis Guellati Tp2-dev-pracht
+  </h1>
   <div class="flex flex-col items-center space-y-5 mt-10">
     <p>Navigation dans la iframe :</p>
     <nav class="flex justify-center space-x-10">
@@ -47,26 +49,6 @@ import GraphicSpecies from "../components/GraphicSpecies.astro";
       <GraphicSpecies species="Gentoo" />
     </section>
   </div>
-  <div class=" flex flex-col mt-10 items-center">
-    <p>Lien vers les pages dédiés :</p>
-    <nav class="flex justify-center space-x-10 my-10">
-      <a
-        href="./species/Adelie"
-        class="bg-blue-500 text-white rounded px-5 py-2.5 border-b-3 border-r-3 border-blue-700 hover:border-0 transition-all"
-        >Adelie</a
-      >
-      <a
-        href="./species/Chinstrap"
-        class="bg-blue-500 text-white rounded px-5 py-2.5 border-b-3 border-r-3 border-blue-700 hover:border-0 transition-all"
-        >Chinstrap</a
-      >
-      <a
-        href="./species/Gentoo"
-        class="bg-blue-500 text-white rounded px-5 py-2.5 border-b-3 border-r-3 border-blue-700 hover:border-0 transition-all"
-        >Gentoo</a
-      >
-    </nav>
-  </div>
   <script>
     document.querySelectorAll("nav a[href^='#']").forEach((a) => {
       a.addEventListener("click", function (e) {
@@ -76,6 +58,10 @@ import GraphicSpecies from "../components/GraphicSpecies.astro";
           target.scrollIntoView({ behavior: "smooth", inline: "start" });
         }
       });
+    });
+    document.querySelector("#species")?.addEventListener("change", (evt) => {
+      const value = (evt.target as HTMLSelectElement).value;
+      location.pathname = "/species/" + value;
     });
   </script>
 </Layout>

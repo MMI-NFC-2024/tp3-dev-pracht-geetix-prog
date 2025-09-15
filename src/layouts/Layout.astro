@@ -22,9 +22,14 @@ import "../styles/global.css";
           <p class="text-gray-600 font-medium">Séléctionnez une page :</p>
           <div class="relative">
             <select id="species" class="appearance-none pointer bg-white border border-gray-300 rounded-md py-2 pl-3 pr-10 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-              <option value="Adelie/">Adelie</option>
-              <option value="Chinstrap/">Chinstrap</option>
-              <option value="Gentoo/">Gentoo</option>
+              <option value="Adelie/" selected={Astro.url.pathname.includes('/species/Adelie/')}>Adelie</option>
+              <option value="Chinstrap/" selected={Astro.url.pathname.includes('/species/Chinstrap/')}>Chinstrap</option>
+              <option value="Gentoo/" selected={Astro.url.pathname.includes('/species/Gentoo/')}>Gentoo</option>
+            </select>
+            <select id="iframe" class="appearance-none pointer bg-white border border-gray-300 rounded-md py-2 pl-3 pr-10 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+              <option value="test-iframe/" selected={Astro.url.pathname.includes('/iframe/test-iframe/')}>Iframe</option>
+              <option value="slider/" selected={Astro.url.pathname.includes('/iframe/Chinstrap/')}>Slider</option>
+              <option value="tabs/" selected={Astro.url.pathname.includes('/iframe/tabs/')}>Tabs</option>
             </select>
             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
               <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
@@ -43,6 +48,10 @@ import "../styles/global.css";
   document.querySelector("#species")?.addEventListener("change", (evt) => {
       const value = (evt.target as HTMLSelectElement).value;
       location.pathname = "/species/" + value;
+    });
+  document.querySelector("#iframe")?.addEventListener("change", (evt) => {
+      const value = (evt.target as HTMLSelectElement).value;
+      location.pathname = "/iframe/" + value;
     });
 </script>
 

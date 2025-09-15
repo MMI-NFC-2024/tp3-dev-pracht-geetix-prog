@@ -54,5 +54,24 @@ import { Tabs, TabsList, TabsTab, TabsPanel } from 'accessible-astro-components'
       targetElement.scrollIntoView({ behavior: "smooth", inline: "start" });
     }
   });
-  
+  document.addEventListener('keydown', (event) => {
+      const tabs = document.querySelectorAll('[role="tab"]');
+      const selectedTab = document.querySelector('[role="tab"][aria-selected="true"]');
+      
+      if (!selectedTab) return;
+      
+      const tabsArray = Array.from(tabs);
+      const currentIndex = tabsArray.indexOf(selectedTab);
+      let newIndex;
+      
+      if (event.key === 'ArrowLeft') {
+        newIndex = currentIndex > 0 ? currentIndex - 1 : tabsArray.length - 1;
+        event.preventDefault();
+        tabsArray[newIndex].click();
+      } else if (event.key === 'ArrowRight') {
+        newIndex = currentIndex < tabsArray.length - 1 ? currentIndex + 1 : 0;
+        event.preventDefault();
+        tabsArray[newIndex].click();
+      }
+    });
 </script>

@@ -1,0 +1,25 @@
+---
+import PlotFigure from "./PlotFigure.astro";
+import * as Plot from "@observablehq/plot";
+import penguins from "../assets/penguins.json";
+
+interface Props {
+    species? : string,
+}
+const { species = "" } = Astro.props;
+// const penguinsFiltered = penguins.filter(({species}) => species === `${species}`);
+console.log({species});
+---
+
+<PlotFigure
+    options={{
+        marks: [
+            Plot.dot(penguins, {
+                x: "culmen_length_mm",
+                y: "culmen_depth_mm",
+                fill: "species",
+                filter: (p) => (species === "") || (p.species===species)
+            }),
+        ],
+    }}
+/>
